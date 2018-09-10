@@ -1,0 +1,20 @@
+---
+layout: layouts/master.njk
+---
+
+<main>
+
+  <h1>Hello, Eleventy Shortcomps</h1>
+
+  <h2>Some Shortcode components</h2>
+  {% Button 'This is a button' %}
+  {% Button 'This is a button link', '/about' %}
+  {% Button 'This is a primary button link', '/about', true %}
+
+  <h2>Some Paired Shortcode components</h2>
+  {% Wrapper %}
+    {% Card 'Zach Leatherman', 'Bio text goes here.', 'https://zachleat.com' %}
+    {% Card 'Adam Duncan', 'Other card bio text goes here.', 'https://adamduncandesigns.com' %}
+  {% endWrapper %}
+
+</main>

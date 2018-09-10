@@ -1,0 +1,23 @@
+{
+  "name": "eleventy-shortcomps",
+  "version": "1.0.0",
+  "description": "Starter project for static site, using Eleventy and shortcode components.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamduncan/eleventy-shortcomps"
+  },
+  "author": "Adam Duncan <mail@adamduncandesigns.com> (https://adamduncandesigns.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamduncan/eleventy-shortcomps/issues"
+  },
+  "homepage": "https://github.com/adamduncan/eleventy-shortcomps#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.5.3"
+  }
+}
