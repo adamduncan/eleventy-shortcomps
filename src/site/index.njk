@@ -17,4 +17,11 @@ layout: layouts/master.njk
     {% Card 'Adam Duncan', 'Other card bio text goes here.', 'https://adamduncandesigns.com' %}
   {% endWrapper %}
 
+  <h2>Props variation (<a href="https://github.com/adamduncan/eleventy-shortcomps#props-variation">see docs</a>)</h2>
+  {% Image {
+    src: 'https://www.11ty.io/img/possum-sm.png',
+    altText: 'Possum suspended in mid-air by red balloon',
+    caption: '@jameswillweb\'s Eleventy logo (<a href="https://twitter.com/jameswillweb/status/999052022497316865">source</a>)'
+  } %}
+
 </main>

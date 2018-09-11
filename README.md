@@ -70,9 +70,68 @@ module.exports = (name, bio, url) => (`
 `);
 ```
 
+## Props variation
+
+Developers coming from (or possibly heading towards) a framework-based component model might be used to passing and receiving their component parameters in a single `props` object.
+
+It’s an elegant way of saying, “Hey, component, here’s everything you’ll need in one tasty little package.”
+
+This commonly results in a functional component that looks more like:
+
+```JavaScript
+// Image.js
+module.exports = ({ src, altText = '', caption = '' }) => (`
+  <figure class="media">
+    <img src="${ src }" alt="${ altText }">
+    ${ caption
+      ? `<figcaption>${ caption }</figcaption>`
+      : ''
+    }
+  </figure>
+`);
+```
+
+(See React’s [Functional and class components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components) documentation)
+
+This single `props` argument can also be [destructured](https://davidwalsh.name/destructuring-function-arguments) and assigned [default parameter values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters). Awesome.
+
+With this approach instead, we still declare our shortcodes as we did previously, but instead of passing multiple parameters to them, we pass a single object containing all of the properties. In a templating language like Nunjucks, that might look like:
+
+```HTML
+{% Image {
+	src: '/path/to/image.jpg',
+	altText: 'The Beatles on stage at Shea Stadium',
+	caption: 'Where’s Ringo?'
+} %}
+```
+
+Or, if you’re using a functional component inside another component, that could start to look a whole lot like those React’y components:
+
+```JavaScript
+// SomeComponent.js
+const Image = require('./Image');
+
+module.exports = props => {
+	const { image } = props;
+
+	return `
+		<div class="some-component">
+			${ Image({
+			  src: image.src,
+			  altText: image.altText,
+			  caption: image.caption
+			}) }
+		</div>
+	`;
+
+};
+```
+
+It seems advantageous to use this `props` approach in favour of the multiple parameter approach outlined first. Our components will benefit from having the same functional signatures as their React (and to some degree, Vue) counterparts, should you need to take them there in the future.
+
 ## Demo
 
-This repo contains just enough to demonstrate how one _could_ utilise this pattern (config, functional stateless  components, shortcodes, paired shortcodes, layouts).
+This repo contains just enough to demonstrate how one _could_ utilise this pattern (config, functional stateless components, props, shortcodes, paired shortcodes, layouts).
 
 Site can be viewed at: [eleventy-shortcomps.netlify.com](https://eleventy-shortcomps.netlify.com)
 
