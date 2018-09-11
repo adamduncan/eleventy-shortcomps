@@ -95,7 +95,7 @@ module.exports = ({ src, altText = '', caption = '' }) => (`
 
 This single `props` argument can also be [destructured](https://davidwalsh.name/destructuring-function-arguments) and assigned [default parameter values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters). Awesome.
 
-With this approach instead, we still declare our shortcodes as we did previously, but instead of passing multiple parameters to them, we pass a single object containing all of the properties. In a templating language like Nunjucks, that might look like:
+With this approach, we still declare our shortcodes in `.eleventy.js` as we did previously. But instead of passing multiple parameters to them in our templates, we pass a single object containing all of the properties. In a templating language like Nunjucks, that might look like:
 
 ```HTML
 {% Image {
@@ -122,7 +122,7 @@ module.exports = props => {
         caption: image.caption
       }) }
     </div>
-`;
+  `;
 
 };
 ```
