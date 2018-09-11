@@ -99,9 +99,9 @@ With this approach instead, we still declare our shortcodes as we did previously
 
 ```HTML
 {% Image {
-	src: '/path/to/image.jpg',
-	altText: 'The Beatles on stage at Shea Stadium',
-	caption: 'Where’s Ringo?'
+  src: '/path/to/image.jpg',
+  altText: 'The Beatles on stage at Shea Stadium',
+  caption: 'Where’s Ringo?'
 } %}
 ```
 
@@ -112,17 +112,17 @@ Or, if you’re using a functional component inside another component, that coul
 const Image = require('./Image');
 
 module.exports = props => {
-	const { image } = props;
+  const { image } = props;
 
-	return `
-		<div class="some-component">
-			${ Image({
-			  src: image.src,
-			  altText: image.altText,
-			  caption: image.caption
-			}) }
-		</div>
-	`;
+  return `
+    <div class="some-component">
+      ${ Image({
+        src: image.src,
+        altText: image.altText,
+        caption: image.caption
+      }) }
+    </div>
+`;
 
 };
 ```
