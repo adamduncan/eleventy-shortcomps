@@ -1,6 +1,6 @@
 # eleventy-shortcomps
 
-Starter project for static site, using Eleventy and shortcode components (AKA _shortcomps_) pattern.
+Starter project for static site, using [Eleventy](https://11ty.io) and shortcode components (AKA _shortcomps_) pattern.
 
 ## Goal
 
@@ -109,7 +109,7 @@ Or, if you’re using a functional component inside another component, that coul
 
 ```JavaScript
 // SomeComponent.js
-const Image = require('./Image');
+const Image = require('./Image.js');
 
 module.exports = props => {
   const { image } = props;
