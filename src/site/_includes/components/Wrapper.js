@@ -1,5 +1,5 @@
-module.exports = content => (`
+module.exports = (content = '') => (`
   <div class="wrapper">
-    ${content}
+    ${ content }
   </div>
 `);

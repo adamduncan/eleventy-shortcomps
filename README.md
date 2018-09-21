@@ -111,7 +111,7 @@ Or, if you’re using a functional component inside another component, that coul
 // SomeComponent.js
 const Image = require('./Image.js');
 
-module.exports = props => {
+module.exports = (props = {}) => {
   const { image } = props;
 
   return `
@@ -127,7 +127,7 @@ module.exports = props => {
 };
 ```
 
-It seems advantageous to use this `props` approach in favour of the multiple parameter approach outlined first. Our components will benefit from having the same functional signatures as their React (and to some degree, Vue) counterparts, should you need to take them there in the future.
+It seems advantageous to use this `props` approach in favour of the multiple parameter approach outlined first. Our components will benefit from having the same functional signatures as their React (and to some degree, Vue) counterparts, should we need to take them there in the future.
 
 ## Demo
 

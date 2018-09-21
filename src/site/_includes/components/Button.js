@@ -5,15 +5,15 @@ module.exports = (text, href, primary) => {
 
   if (href) {
     return `
-      <a class="button ${primaryClass}" href="${href}">
-        ${text}
+      <a class="button ${ primaryClass }" href="${ href }">
+        ${ text }
       </a>
     `;
   }
 
   return `
-    <button class="button ${primaryClass}">
-      ${text}
+    <button class="button ${ primaryClass }">
+      ${ text }
     </button>
   `;
 };
