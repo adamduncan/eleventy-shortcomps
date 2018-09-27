@@ -83,10 +83,9 @@ This commonly results in a functional component that looks more like:
 module.exports = ({ src, altText = '', caption = '' }) => (`
   <figure class="media">
     <img src="${ src }" alt="${ altText }">
-    ${ caption
-      ? `<figcaption>${ caption }</figcaption>`
-      : ''
-    }
+    ${ caption && `
+      <figcaption>${ caption }</figcaption>
+    `}
   </figure>
 `);
 ```
@@ -94,6 +93,8 @@ module.exports = ({ src, altText = '', caption = '' }) => (`
 (See React’s [Functional and class components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components) documentation)
 
 This single `props` argument can also be [destructured](https://davidwalsh.name/destructuring-function-arguments) and assigned [default parameter values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters). Awesome.
+
+_Note:_ The example above uses the [logical AND operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators#Description) to add conditional rendering logic for the `<figcaption>`. Ensure props have default values set to avoid this rendering a value of `false` in compiled templates.
 
 With this approach, we still declare our shortcodes in `.eleventy.js` as we did previously. But instead of passing multiple parameters to them in our templates, we pass a single object containing all of the properties. In a templating language like Nunjucks, that might look like:
 
