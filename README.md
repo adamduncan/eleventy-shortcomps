@@ -64,7 +64,7 @@ module.exports = (name, bio, url) => (`
   <article class="card">
     <h3>${ name }</h3>
     <p>${ bio }</p>
-    
+
     ${ Button('Visit site', url) }
   </article>
 `);
@@ -112,21 +112,25 @@ Or, if you’re using a functional component inside another component, that coul
 // SomeComponent.js
 const Image = require('./Image.js');
 
-module.exports = (props = {}) => {
-  const { image } = props;
+module.exports = ({ title, image = {} } = {}) => {
+  const { src, altText = '', caption } = image;
 
   return `
     <div class="some-component">
+      ${ title && `
+        <h2>${ title }</h2>
+      `}
       ${ Image({
-        src: image.src,
-        altText: image.altText,
-        caption: image.caption
+        src,
+        altText,
+        caption
       }) }
     </div>
   `;
-
 };
 ```
+
+Here we can further leverage modern JavaScript features, such as [Object property value shorthand](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) — along with destructuring — to give us a clear, terse syntax for using components.
 
 It seems advantageous to use this `props` approach in favour of the multiple parameter approach outlined first. Our components will benefit from having the same functional signatures as their React (and to some degree, Vue) counterparts, should we need to take them there in the future.
 
