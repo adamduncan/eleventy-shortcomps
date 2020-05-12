@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/adamduncan/eleventy-shortcomps#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.5.3"
+    "@11ty/eleventy": "^0.11.0"
   }
 }
